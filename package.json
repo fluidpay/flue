@@ -1,5 +1,5 @@
 {
-  "name": "flue",
+  "name": "@gwservice/flue",
   "version": "0.0.1",
   "private": false,
   "scripts": {
