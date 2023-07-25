@@ -1,0 +1,38 @@
+import validator from '../email'
+import { describe, expect, test } from 'vitest'
+
+describe('Email Validator', () => {
+  test('pass on valid email', () => {
+    expect(validator('email@example.com')).toBe(true)
+    expect(validator('firstname.lastname@example.com')).toBe(true)
+    expect(validator('email@subdomain.example.com')).toBe(true)
+    expect(validator('firstname+lastname@example.com')).toBe(true)
+    expect(validator('email@[123.123.123.123]')).toBe(true)
+    expect(validator('"email"@example.com')).toBe(true)
+    expect(validator('1234567890@example.com')).toBe(true)
+    expect(validator('email@example-one.com')).toBe(true)
+    expect(validator('_______@example.com')).toBe(true)
+    expect(validator('email@example.name')).toBe(true)
+    expect(validator('email@example.museum')).toBe(true)
+    expect(validator('email@example.co.jp')).toBe(true)
+    expect(validator('firstname-lastname@example.com')).toBe(true)
+  })
+  test('fail on invalid email', () => {
+    expect(validator('plainaddress')).toBe(false)
+    expect(validator('#@%^%#$@#$@#.com')).toBe(false)
+    expect(validator('@example.com')).toBe(false)
+    expect(validator('Joe Smith <email@example.com>')).toBe(false)
+    expect(validator('email.example.com')).toBe(false)
+    expect(validator('email@example@example.com')).toBe(false)
+    expect(validator('.email@example.com')).toBe(false)
+    expect(validator('email.@example.com')).toBe(false)
+    expect(validator('email..email@example.com')).toBe(false)
+    expect(validator('email@example.com (Joe Smith)')).toBe(false)
+    expect(validator('email@example')).toBe(false)
+    expect(validator('email@111.222.333.44444')).toBe(false)
+    expect(validator('email@example..com')).toBe(false)
+    expect(validator('Abc..123@example.com')).toBe(false)
+    expect(validator('”(),:;<>[]@example.com')).toBe(false)
+    expect(validator('this is"really"notallowed@example.com')).toBe(false)
+  })
+})
