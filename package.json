@@ -32,6 +32,10 @@
       ]
     }
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "dependencies": {
     "vue": "^3.3.4"
   },
