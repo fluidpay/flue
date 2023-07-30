@@ -19,3 +19,6 @@ function setLocale(newLocale: string) {
 }
 
 export { plugin, useFlue, useFlueCollection, useFlueForm, setLocale, locale }
+export * from './types'
+export * from './rules'
+export * from './rules/utils'

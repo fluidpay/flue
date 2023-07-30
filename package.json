@@ -1,6 +1,6 @@
 {
   "name": "@gwservices/flue",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "scripts": {
     "dev": "vite",
@@ -12,6 +12,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
+  "type": "module",
   "module": "./dist/flue.es.js",
   "main": "./dist/flue.umd.js",
   "types": "./dist/src/index.d.ts",
@@ -28,7 +29,9 @@
   "typesVersions": {
     "*": {
       "types": [
-        "./dist/src/index.d.ts"
+        "./dist/src/index.d.ts",
+        "./dist/src/types/index.d.ts",
+        "./dist/src/rules/index.d.ts"
       ]
     }
   },
